@@ -1,95 +1,70 @@
 ---
 import { Code } from 'astro:components';
+import yaml from 'js-yaml'
 
-const code = `interface Developer {
-    name: string;
-    skills: string[];
-    interests: string[];
-};
+const code = `techstack:
+    devops:
+        - Docker
+        - Docker
+        - Terraform
+        - Cloudflare
+        - Nginx
+        - GitHub (CI/CD)
+        - Jenkins
+        - Tailscale
+        - MinIO
+        - AWS
+    programming:
+        - Python
+        - C/C++
+        - Java
+        - Golang
+        - Rust
+        - sh
+    tech-stack:
+        - Django
+        - Flast
+        - FastAPI
+        - Go-Gin
+        - SQLAchemy
+        - GORM
+        - PostgreSQL
+        - MySQL
+        - SQLite
+        - S3 Storage (object-storage)
+    embedded-system:
+        - Embeded C
+        - Arduino
+        - Raspberry PI
+        - Jetson Xavier
+        - IOT sensors
+        - integration & automation
 
-interface TechStack {
-    devOps: string[];
-    backend: string[];
-   frontend: string[];
-};
+intrest:
+    - Self-Hosting
+    - Open Source
+    - Computer Networking
+    - Network Security
+    - Theory of Logic
+    - Operating Systems
 
-type ContactType = 'github' | 'twitter' | 'linkedIn' | 'xing' | 'email';
-
-const techStack: TechStack = {
-    devOps: [
-        'GitLab',
-        'GitHub',
-        'Cloudflare',
-        'Docker'
-    ],
-    frontend: [
-        'Angular',
-        'JavaScript',
-        'TypeScript',
-        'TailwindCSS',
-        'PrimeNG',
-        'Astro',
-        'Ionic',
-        'Stencil',
-        'Capacitor',
-        'SCSS',
-        'Markdown',
-        'WordPress'
-    ],
-    backend: [
-        'Supabase',
-        'Node.js',
-        'Bun',
-        'Deno',
-        'PostgreSQL',
-        'MySQL',
-        'S3 Storage',
-        'Resend'
-    ]
-};
-
-// Developer profile
-const me: Developer = {
-    name: 'Dejan Vi.',
-    skills: [
-        ...techStack.devOps,
-        ...techStack.backend,
-        ...techStack.frontend
-    ],
-    interests: [
-        'Open Source',
-        'Security',
-        'Privacy',
-        'Performance',
-        'Self-Hosting',
-        'Networking'
-    ]
-};
-
-// Contact function
-const contact = (type: ContactType): string => {
-    switch (type) {
-        case 'github':
-            return 'https://github.com/devidevio';
-        case 'twitter':
-            return 'https://x.com/devidev_io';
-        case 'linkedIn':
-            return 'https://www.linkedin.com/in/dejan-vi';
-        case 'xing':
-            return 'https://www.xing.com/profile/Dejan_Vintonjiv';
-        case 'email':
-            return 'hi@devidev.io';
-        default:
-            return 'Send fax.';
-    }
-};
-
+contact-me:
+    - github = 'https://github.com/ankitprasad2005'
+    - twitter = 'https://x.com/ankitprasad2005'
+    - linkedIn = 'https://linkedin.com/in/ankitprasad2005'
+    - email = 'ankitprasad2005@outlook.com'
 `;
+
+// Parse YAML into a JavaScript object
+const parsedData = yaml.load(code);
+
+// You can now use parsedData in your component if needed
+console.log(parsedData);
 ---
 
 <Code
     code={code}
-    lang="js"
+    lang="yaml"
     wrap={true}
 />
 
