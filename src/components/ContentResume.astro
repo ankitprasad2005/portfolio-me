@@ -1,0 +1,103 @@
+---
+// Import any necessary utilities or settings
+// You can place your actual resume PDF file in the public folder
+const resumePdfPath = "../../public/pdf/resume.pdf";
+---
+
+<div class="resume-container">
+    <div class="pdf-viewer">
+        <object 
+            data={resumePdfPath} 
+            type="application/pdf" 
+            width="100%" 
+            height="100%"
+        >
+            <div class="pdf-fallback">
+                <p>It appears your browser doesn't support embedded PDFs.</p>
+                <p>You can:</p>
+                <ul>
+                    <li><a href={resumePdfPath} target="_blank" class="pdf-link">View the PDF in a new tab</a></li>
+                    <li><a href={resumePdfPath} download class="pdf-link">Download the PDF</a></li>
+                </ul>
+                <div class="pdf-preview">
+                    <img src="/resume-preview.png" alt="Resume Preview" class="preview-img" />
+                </div>
+            </div>
+        </object>
+    </div>
+    
+    <div class="pdf-controls">
+        <a href={resumePdfPath} download class="download-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download Resume
+        </a>
+    </div>
+</div>
+
+<style>
+    .resume-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: calc(90vh - 120px);
+    }
+    
+    .pdf-controls {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0.5rem 0;
+        margin-top: 0.75rem;
+    }
+    
+    .download-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background-color: var(--color-primary, #0d9488);
+        color: white;
+        border-radius: 0.25rem;
+        font-size: 0.875rem;
+        transition: background-color 0.2s;
+    }
+    
+    .download-btn:hover {
+        background-color: var(--color-primary-dark, #0f766e);
+    }
+    
+    .pdf-viewer {
+        flex: 1;
+        border: 1px solid #374151;
+        border-radius: 0.25rem;
+        overflow: hidden;
+    }
+    
+    .pdf-fallback {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .pdf-link {
+        color: var(--color-primary, #0d9488);
+        text-decoration: underline;
+    }
+    
+    .pdf-preview {
+        margin-top: 2rem;
+        max-width: 100%;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .preview-img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #374151;
+    }
+</style>
