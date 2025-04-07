@@ -72,6 +72,8 @@ console.log(parsedData);
     /* Custom styling for code block line numbers */
     pre.astro-code {
         @apply bg-transparent !important;
+        position: relative;
+        padding-left: 2.5rem;
     }
 
     pre.astro-code code {
@@ -87,7 +89,11 @@ console.log(parsedData);
     pre.astro-code code .line::before {
         content: counter(step);
         counter-increment: step;
-        @apply text-gray-600 pr-2;
+        @apply text-gray-600;
+        position: absolute;
+        left: -3rem;
+        width: 2.5rem;
+        text-align: right;
     }
 
 </style>
