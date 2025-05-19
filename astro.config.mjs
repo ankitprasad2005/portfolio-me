@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
     output: 'static',
-    trailingSlash: 'always',
+    trailingSlash: 'ignore',
     site: 'https://devidev.io',
 
     // Single page, no prefetch needed
