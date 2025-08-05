@@ -1,0 +1,95 @@
+---
+import { Code } from 'astro:components';
+
+// README content written directly in the component
+const readmeContent = `## About Me
+
+I'm an enthusiastic DevOps engineer dedicated to automating workflows, optimizing infrastructure, and enabling seamless deployment processes. With experience in Docker, self-hosting solutions, and contributing to impactful open-source projects, I'm passionate about computer networks and deeply invested in network security.
+
+## Tech Stack
+
+### DevOps & Infrastructure
+- **Containerization**: Docker, Kubernetes
+- **Infrastructure as Code**: Terraform, Ansible
+- **Cloud Platforms**: AWS, GCP, Azure
+- **CI/CD**: Git Actions, Jenkins
+- **Reverse Proxy**: Nginx, Traefik
+- **Networking**: Tailscale, Cloudflare
+- **Storage**: MinIO
+- **Automation**: n8n
+
+### Programming Languages
+- **Primary**: Python, C/C++, Java
+- **Modern**: Golang, Rust
+- **Scripting**: Shell scripting (sh/bash)
+
+### Frameworks & Databases
+- **Web Frameworks**: Django, Flask, FastAPI, Go-Gin
+- **ORMs**: SQLAlchemy, GORM
+- **Databases**: PostgreSQL, MySQL, SQLite
+
+### Embedded Systems
+- **Hardware**: Arduino, Raspberry Pi, Jetson Xavier
+- **Programming**: Embedded C
+- **Integration**: IoT sensors, automation systems
+
+## Featured Projects
+
+### DefDrive
+A secure file sharing service with time-based expiry keys, one-time link usage, whitelisted access controls, and restricted TTL for enhanced security.
+
+### Prabandh
+An intelligent file indexer using NLP for contextual understanding, image recognition, and OCR. Features real-time monitoring with Watchdog and Redis caching for improved performance.
+
+### GitGuru
+An AI-powered Chrome extension that analyzes GitHub Issues, providing detailed explanations and solutions with a FastAPI backend running LLMs.
+
+## Interests
+
+- **Self-Hosting**: Building and maintaining personal infrastructure
+- **Open Source**: Contributing to community projects
+- **Computer Networking**: Deep understanding of network protocols
+- **Network Security**: Implementing robust security measures
+- **Theory of Logic**: Mathematical foundations of computing
+- **Operating Systems**: Low-level system understanding
+
+## Get In Touch
+
+Feel free to reach out through any of the social links on the left panel. I'm always interested in discussing DevOps, automation, security, or collaborating on interesting projects.
+`;
+---
+
+<Code
+    code={readmeContent}
+    lang="markdown"
+    wrap={true}
+/>
+
+<style is:global>
+    /* Custom styling for markdown code block line numbers */
+    pre.astro-code {
+        @apply bg-transparent !important;
+        position: relative;
+        padding-left: 2.5rem;
+    }
+
+    pre.astro-code code {
+        @apply block;
+        counter-reset: step;
+        counter-increment: step 0;
+    }
+
+    pre.astro-code code .line {
+        @apply relative;
+    }
+
+    pre.astro-code code .line::before {
+        content: counter(step);
+        counter-increment: step;
+        @apply text-gray-600;
+        position: absolute;
+        left: -3rem;
+        width: 2.5rem;
+        text-align: right;
+    }
+</style>
