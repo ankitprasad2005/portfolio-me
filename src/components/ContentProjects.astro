@@ -11,20 +11,26 @@ interface Project {
 };
 
 const projects: Project[] = [{
-    name: 'DefDrive',
-    description: 'A service which let users to generate multiple time-based expiry keys with restrictions like one-time link usage, whitelisted subnet or IP access, and restricted TTL (Time-To-Live) to control data traffic and limit external network access.',
+    name: 'Rodan',
+    description: 'Rodan is a high-performance Capture-the-Flag platform built to deliver unique, containerized challenges for every team. Each challenge generates dynamic flags, ensuring a consistent solve flow while preventing flag sharing. The system runs on a microservice architecture with SSE-powered live notifications, dedicated authentication, and a Rust-based static file service. Intelligent auto-stop policies reduce idle container usage, while optimized connection handling and orchestration allow the platform to sustain 10,000+ requests per minute without performance degradation.',
     link: {
-        url: 'https://github.com/ankitprasad2005/defdrive',
+        url: 'https://github.com/intraware'
+    }
+}, {
+    name: 'DefDrive',
+    description: 'Defdrive is a security-focused platform for generating time-sensitive access keys. It supports one-time link usage, subnet/IP whitelisting, and TTL-restricted access to control data flow and limit exposure to external networks. Designed for environments where controlled, temporary access is critical, Defdrive combines simplicity for end-users with robust backend enforcement.',
+    link: {
+        url: 'https://github.com/ankitprasad2005/defdrive'
     }
 }, {
     name: 'Prabandh',
-    description: 'A file indexer leveraging NLP for contextual understanding, image recognition, and OCR to accurately index images and enhance search accuracy. Integrated Watchdog for real-time monitoring and Redis for caching, minimizing redundant tasks and significantly improving search speed.',
+    description: 'Prabandh is an AI-powered file indexing system that uses NLP, image recognition, and OCR to deliver highly accurate search results. It continuously monitors file changes via Watchdog, while Redis caching eliminates redundant processing, resulting in significantly faster query responses. Ideal for large, mixed-media datasets, Prabandh enhances discoverability and retrieval efficiency.',
     link: {
         url: 'https://github.com/ankitprasad2005/prabandh'
     }
 }, {
     name: 'GitGuru',
-    description: 'An AI-driven Chrome extension that analyzes and summarizes GitHub Issues, providing detailed explanations and solutions to enhance developer productivity. Implemented a FastAPI backend running LLMs for issue analysis, with a frontend injected into the web page using HTML, CSS, and JavaScript.',
+    description: 'GitGuru is a Chrome extension that analyzes and summarizes GitHub Issues in real time, providing developers with concise explanations and actionable solutions. Powered by a FastAPI backend running LLMs, it integrates directly into the GitHub interface via an injected HTML/CSS/JavaScript frontend, streamlining the debugging and issue-resolution process.',
     link: {
         url: 'https://github.com/re-juvenate/gitguru-v2-backend'
     }
