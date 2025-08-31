@@ -94,19 +94,19 @@ import ContentResume from '../components/ContentResume.astro';
                     <div class="p-6 flex-grow overflow-y-auto bg-black">
 
                         <!-- Start: About content -->
-                        <div id="content1" class="tab-content">
+                        <div id="content1" class="tab-content" data-tab="about">
                             <ContentCode />
                         </div>
                         <!-- End: About content -->
 
                         <!-- Start: Projects content -->
-                        <div id="content2" class="tab-content">
+                        <div id="content2" class="tab-content" data-tab="projects">
                             <ContentProjects />
                         </div>
                         <!-- End: Projects content -->
 
                         <!-- Start: Resume content -->
-                        <div id="content3" class="tab-content">
+                        <div id="content3" class="tab-content" data-tab="resume">
                             <ContentResume />
                         </div>
                         <!-- End: Resume content -->
@@ -228,3 +228,49 @@ import ContentResume from '../components/ContentResume.astro';
     }
 
 </style>
+
+<script>
+    // Handle URL anchors for direct tab navigation
+    function handleTabFromURL() {
+        const hash = window.location.hash.substring(1); // Remove the #
+        const tabMap = {
+            'about': 'tab1',
+            'projects': 'tab2',
+            'resume': 'tab3'
+        };
+        
+        if (hash && tabMap[hash]) {
+            const radioButton = document.getElementById(tabMap[hash]) as HTMLInputElement;
+            if (radioButton) {
+                radioButton.checked = true;
+            }
+        }
+    }
+    
+    // Handle tab clicks to update URL
+    function setupTabListeners() {
+        const tabs = document.querySelectorAll('.tab-radio');
+        const urlMap = {
+            'tab1': 'about',
+            'tab2': 'projects', 
+            'tab3': 'resume'
+        };
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('change', function(this: HTMLInputElement) {
+                if (this.checked && urlMap[this.id]) {
+                    window.history.pushState(null, '', '#' + urlMap[this.id]);
+                }
+            });
+        });
+    }
+    
+    // Run on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        handleTabFromURL();
+        setupTabListeners();
+    });
+    
+    // Handle browser back/forward
+    window.addEventListener('popstate', handleTabFromURL);
+</script>
