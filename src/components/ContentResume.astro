@@ -1,7 +1,5 @@
 ---
-import resumePdfPath from '../assets/resume.pdf';
-// You can place your actual resume PDF file in the public folder
-// const resumePdfPath = "../assets/resume.pdf";
+const resumePdfPath = '/resume.pdf';
 ---
 
 <div class="resume-container">
@@ -20,7 +18,7 @@ import resumePdfPath from '../assets/resume.pdf';
                     <li><a href={resumePdfPath} download class="pdf-link">Download the PDF</a></li>
                 </ul>
                 <div class="pdf-preview">
-                    <img src="src/assets/resume-preview.jpg" alt="Resume Preview" class="preview-img" />
+                    <img src="/resume-preview.jpg" alt="Resume Preview" class="preview-img" />
                 </div>
             </div>
         </object>
